@@ -9,18 +9,18 @@ import org.springframework.data.relational.core.mapping.Table;
 @Value
 @Builder
 @Table("users")
-public class User {
-  @Id
-  @Column("id")
-  Long id;
-  @Column("login")
-  String login;
-  @Column("name")
-  String name;
-  @Column("email")
-  String email;
-  @Column("password")
-  String password;
-  @Column("role_id")
-  Integer roleId;
-}
+public class UserWithRole {
+    @Id
+    @Column("id")
+    Long id;
+    @Column("login")
+    String login;
+    @Column("name")
+    String name;
+    @Column("email")
+    String email;
+    @Column("password")
+    String password;
+    @Column("role_name")
+    String roleName;
+  }
