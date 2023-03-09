@@ -6,9 +6,9 @@ import org.springframework.data.repository.query.Param;
 import shikimori.springboot.model.User;
 
 public interface UserRepository extends Repository<User, Long> {
-  @Query("INSERT INTO users (login, password, role) VALUES(:login, :password, :role) " +
-      "RETURNING id, login, password, role")
+  @Query("INSERT INTO users (login, password, role_id) VALUES(:login, :password, :rolId) " +
+      "RETURNING id, login, password, role_id")
   User save(@Param("login") final String login,
             @Param("password") final String password,
-            @Param("role") final String role);
+            @Param("roleId") final Integer roleId);
 }

@@ -10,6 +10,6 @@ import shikimori.springboot.repository.UserRepository;
 public class UserService {
   private final UserRepository userRepository;
   public User save(final User user) {
-    return userRepository.save(user.getLogin(), user.getPassword(), user.getRole());
+    return userRepository.save(user.getLogin(), user.getPassword(), user.getRoleId());
   }
 }
