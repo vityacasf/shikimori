@@ -22,7 +22,7 @@ public class UserController {
   private final UserFacade userFacade;
   private final UserConverter userConverter;
 
-  @PostMapping("/user")
+  @PostMapping("/users")
   ResponseEntity<SaveUserResponse> save(@RequestBody SaveUserRequest request){
     User userFromRequest = userConverter.fromDto(request);
     Optional<User> savedUser = userFacade.save(userFromRequest);
@@ -48,7 +48,6 @@ public class UserController {
       UserResponse response = UserConverter.toDto(foundUser.get());
       return Optional.of(response);
     }
-
     return Optional.empty();
   }
 }
