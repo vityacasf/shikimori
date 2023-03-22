@@ -18,7 +18,6 @@ public class UserFacade {
 
     if (findUser.isEmpty()) {
       User savedUser = userService.save(user);
-
       return Optional.of(savedUser);
     }
     return Optional.empty();
@@ -26,5 +25,9 @@ public class UserFacade {
 
   public Optional<UserWithRole> getById(final Long userId) {
     return userService.getUserById(userId);
+  }
+
+  public Optional<UserWithRole> getByCredentials(final User user) {
+    return userService.getByCredentials(user);
   }
 }

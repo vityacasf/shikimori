@@ -23,4 +23,8 @@ public class UserService {
   public Optional<UserWithRole> getUserById(final Long userId) {
     return userRepository.getByUserId(userId);
   }
+
+  public Optional<UserWithRole> getByCredentials(final User user) {
+    return userRepository.getByCredentials(user.getLogin(), user.getPassword());
+  }
 }

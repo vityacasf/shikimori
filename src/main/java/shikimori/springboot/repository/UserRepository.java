@@ -22,4 +22,9 @@ public interface UserRepository extends Repository<User, Long> {
       "JOIN role r on r.id = users.role_id " +
       "WHERE users.id=:userId")
   Optional<UserWithRole> getByUserId(@Param("userId") final Long userId);
+
+  @Query("SELECT users.id, users.login, users.password, r.name FROM users " +
+      "JOIN role r on r.id = users.role_id " +
+      "WHERE login=:login AND password=:password")
+  Optional<UserWithRole> getByCredentials(@Param("login") String login, @Param("password") String password);
 }
