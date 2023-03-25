@@ -6,19 +6,15 @@ spring:
     path match:
       matching-strategy: ant_path_matcher
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-
 security:
-  secretKey: "secretKeyViktor"
+  secret: "SECRET"
   refresh_secret: "secretRefresh"
   allowed-origin: "http://localhost:3000"
-
-secret: "SECRET"
 
 services:
   user:
     url: 'http://localhost:8081'
+
+jwt:
+  access_token_name: "JWT"
+  refresh_token_name: "JWT_REFRESH"
