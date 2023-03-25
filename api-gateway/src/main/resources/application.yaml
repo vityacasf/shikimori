@@ -9,6 +9,7 @@ spring:
 security:
   secret: "SECRET"
   refresh_secret: "secretRefresh"
+  session-duration-minutes: 86400
   allowed-origin: "http://localhost:3000"
 
 services:
