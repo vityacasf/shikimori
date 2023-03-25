@@ -4,13 +4,6 @@ spring:
     username: postgres
     password: postgres
     url: jdbc:postgresql://localhost:5432/shikimori
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
+server:
+  port: 8081
