@@ -14,8 +14,8 @@ import java.util.Date;
 @Slf4j
 @Component
 public class JwtProvider {
-  private String jwtSecret;
-  private Long sessionDurationMinutes;
+  private final String jwtSecret;
+  private final Long sessionDurationMinutes;
 
   public JwtProvider(
       @Value("${security.secret}") final String jwtSecret,

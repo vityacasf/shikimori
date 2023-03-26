@@ -19,7 +19,7 @@ public interface UserClient {
   Optional<UserResponse> getByCredentials(@RequestBody GetUserByCredentialsRequest request);
 
   @GetMapping("/user/{userId}")
-  ResponseEntity<com.example.gateway.dto.user.UserResponse> getById(@PathVariable("userId") final Long userId);
+  ResponseEntity<UserResponse> getById(@PathVariable("userId") final Long userId);
 
   @PostMapping("/users")
   ResponseEntity<SaveUserResponse> saveUser(@RequestBody SaveUserRequest request);
