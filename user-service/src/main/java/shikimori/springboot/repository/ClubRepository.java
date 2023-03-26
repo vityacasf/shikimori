@@ -14,8 +14,8 @@ public interface ClubRepository extends Repository<Club, Long> {
   @Query("SELECT * FROM club WHERE name:=name")
   Optional<Club> getByName(@Param("name") final String name);
 
-  @Query("SELECT * FROM club WHERE id=:groupId")
-  Optional<Club> getById(@Param("groupId") final Long groupId);
+  @Query("SELECT * FROM club WHERE id=:clubId")
+  Optional<Club> getById(@Param("clubId") final Long clubId);
 
   @Query("SELECT * FROM club")
   List<Club> getGroupList();

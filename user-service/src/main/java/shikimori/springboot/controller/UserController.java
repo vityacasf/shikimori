@@ -35,17 +35,17 @@ public class UserController {
   ResponseEntity<UserResponse> getById(@PathVariable("userId") final Long userId) {
     Optional<UserWithRole> foundUser = userFacade.getById(userId);
     return foundUser
-        .map(user -> new ResponseEntity<>(UserConverter.toDto(user), HttpStatus.OK))
+        .map(user -> new ResponseEntity<>(userConverter.toDto(user), HttpStatus.OK))
         .orElseGet(() -> new ResponseEntity<>(HttpStatus.CONFLICT));
   }
 
   @PostMapping("/user/credentials")
   Optional<UserResponse> getByCredentials(@RequestBody GetUserByCredentialsRequest request) {
-    User user = UserConverter.fromDto(request);
+    User user = userConverter.fromDto(request);
 
     Optional<UserWithRole> foundUser = userFacade.getByCredentials(user);
     if (foundUser.isPresent()) {
-      UserResponse response = UserConverter.toDto(foundUser.get());
+      UserResponse response = userConverter.toDto(foundUser.get());
       return Optional.of(response);
     }
     return Optional.empty();
