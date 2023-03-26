@@ -10,10 +10,10 @@ import shikimori.springboot.model.UserWithRole;
 
 @Mapper
 public interface UserConverter {
-  static UserResponse toDto(final UserWithRole user);
+  UserResponse toDto(final UserWithRole user);
   SaveUserResponse toDto(final User user);
 
   User fromDto(final SaveUserRequest user);
 
-  static User fromDto(final GetUserByCredentialsRequest request);
+  User fromDto(final GetUserByCredentialsRequest request);
 }
